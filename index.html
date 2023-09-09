@@ -47,6 +47,14 @@
             transition: background-color 0.3s ease;
         }
 
+        button.square {
+            grid-column: span 2;
+        }
+
+        button.history {
+            background-color: #ff6f00; /* Orange color for history button */
+        }
+
         button:hover {
             background-color: #ff6f00; /* Orange color for action buttons */
         }
@@ -54,7 +62,9 @@
 </head>
 <body>
     <div class="calculator">
-        <input type="text" id="result" class="display" readonly>
+        <input type="text" id="result" class="display" oninput="checkForRedirect(this.value)" maxlength="4">
+        <button class="square" onclick="clearDisplay()">C</button>
+        <button class="history" onclick="redirectToHistory()">History</button>
         <button onclick="appendToDisplay('7')">7</button>
         <button onclick="appendToDisplay('8')">8</button>
         <button onclick="appendToDisplay('9')">9</button>
@@ -71,7 +81,6 @@
         <button onclick="appendToDisplay('.')">.</button>
         <button onclick="calculate()">=</button>
         <button onclick="appendToDisplay('+')">+</button>
-        <button onclick="clearDisplay()">C</button>
     </div>
 
     <script>
@@ -94,6 +103,16 @@
             } catch (error) {
                 document.getElementById('result').value = 'Error';
             }
+        }
+
+        function checkForRedirect(inputValue) {
+            if (inputValue === '1234') {
+                window.location.href = 'http://example.com';
+            }
+        }
+
+        function redirectToHistory() {
+            window.location.href = 'history.html';
         }
     </script>
 </body>
