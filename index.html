@@ -21,7 +21,7 @@
         /* Set the calculator width to a percentage of the screen width */
         .calculator {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             grid-gap: 5px;
             width: 100%;
             max-width: 400px;
@@ -32,7 +32,7 @@
         }
 
         .display {
-            grid-column: span 3;
+            grid-column: span 4;
             background-color: #444;
             padding: 10px;
             text-align: right;
@@ -54,15 +54,22 @@
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        /* Moved the clear and history buttons and changed their colors */
+        /* Updated layout for clear and history buttons */
         .clear {
+            grid-column: span 2;
             background-color: #007bff; /* Changed color to blue */
             color: #fff;
         }
 
         .history {
+            grid-column: span 2;
             background-color: #ff6f00; /* Changed color to orange */
             color: #fff;
+        }
+
+        /* Updated layout for number buttons */
+        .number {
+            background-color: #666;
         }
 
         /* Updated layout for action buttons */
@@ -86,11 +93,6 @@
 
         .divide {
             background-color: #444;
-        }
-
-        /* Gray color for number buttons */
-        .number {
-            background-color: #666;
         }
 
         button:hover {
