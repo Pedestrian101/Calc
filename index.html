@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=0.75, maximum-scale=0.75, user-scalable=no">
     <title>Fake Calculator App</title>
     <style>
         body {
@@ -58,9 +58,10 @@
         }
 
         .history {
-            grid-column: span 2;
+            grid-column: span 4;
             background-color: #ff6f00;
             color: #fff;
+            text-align: center;
         }
 
         button:hover {
@@ -72,7 +73,6 @@
 <body>
     <div class="calculator">
         <input type="text" id="result" class="display" readonly>
-        <button class="history" onclick="redirectToHistory()">History</button>
         <button class="clear" onclick="clearDisplay()">C</button>
         <button onclick="appendToDisplay('1')">1</button>
         <button onclick="appendToDisplay('2')">2</button>
@@ -90,6 +90,7 @@
         <button onclick="appendToDisplay('.')">.</button>
         <button onclick="appendToDisplay('*')">*</button>
         <button onclick="appendToDisplay('/')">/</button>
+        <button class="history" onclick="redirectToHistory()">History</button>
     </div>
 
     <script>
