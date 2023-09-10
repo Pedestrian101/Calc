@@ -47,10 +47,15 @@
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        button.history {
-            grid-column: span 3;
-            background-color: #ff6f00; /* Orange color for history button */
+        .clear {
+            grid-column: span 2;
+            background-color: #ff6f00; /* Orange color for clear button */
             color: #fff;
+        }
+
+        button.history {
+            grid-column: span 1;
+            background-color: #444; /* Gray color for history button */
         }
 
         button:hover {
@@ -62,6 +67,8 @@
 <body>
     <div class="calculator">
         <input type="text" id="result" class="display" readonly>
+        <button class="clear" onclick="clearDisplay()">C</button>
+        <button class="history" onclick="redirectToHistory()">History</button>
         <button onclick="appendToDisplay('1')">1</button>
         <button onclick="appendToDisplay('2')">2</button>
         <button onclick="appendToDisplay('3')">3</button>
@@ -71,15 +78,13 @@
         <button onclick="appendToDisplay('7')">7</button>
         <button onclick="appendToDisplay('8')">8</button>
         <button onclick="appendToDisplay('9')">9</button>
-        <button class="history" onclick="processInput()">=</button>
         <button onclick="appendToDisplay('/')">/</button>
         <button onclick="appendToDisplay('*')">*</button>
         <button onclick="appendToDisplay('-')">-</button>
         <button onclick="appendToDisplay('0')">0</button>
         <button onclick="appendToDisplay('.')">.</button>
-        <button onclick="calculate()">=</button>
+        <button class="equals" onclick="calculate()">=</button>
         <button onclick="appendToDisplay('+')">+</button>
-        <button class="square" onclick="clearDisplay()">C</button>
     </div>
 
     <script>
@@ -104,12 +109,8 @@
             }
         }
 
-        function processInput() {
-            if (displayValue === '1234') {
-                window.location.href = 'http://example.com';
-            } else {
-                calculate();
-            }
+        function redirectToHistory() {
+            window.location.href = 'history.html';
         }
     </script>
 </body>
