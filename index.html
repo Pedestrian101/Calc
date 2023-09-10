@@ -21,7 +21,8 @@
         /* Set the calculator width to a percentage of the screen width */
         .calculator {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
             width: 120%; /* Enlarge by 75% (adjust the percentage as needed) */
             max-width: 400px;
             padding: 10px;
@@ -30,7 +31,7 @@
         }
 
         .display {
-            grid-column: span 4;
+            grid-column: span 3;
             background-color: #444;
             padding: 10px;
             text-align: right;
@@ -54,14 +55,19 @@
 
         .clear {
             grid-column: span 2;
-            background-color: #333;
+            background-color: #ff6f00;
+            color: #fff;
         }
 
         .history {
-            grid-column: span 4;
+            grid-row: span 2;
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .equals {
             background-color: #ff6f00;
             color: #fff;
-            text-align: center;
         }
 
         button:hover {
@@ -74,23 +80,23 @@
     <div class="calculator">
         <input type="text" id="result" class="display" readonly>
         <button class="clear" onclick="clearDisplay()">C</button>
+        <button class="history" onclick="redirectToHistory()">History</button>
         <button onclick="appendToDisplay('1')">1</button>
         <button onclick="appendToDisplay('2')">2</button>
         <button onclick="appendToDisplay('3')">3</button>
-        <button class="equals" onclick="calculate()">=</button>
         <button onclick="appendToDisplay('4')">4</button>
         <button onclick="appendToDisplay('5')">5</button>
         <button onclick="appendToDisplay('6')">6</button>
-        <button onclick="appendToDisplay('+')">+</button>
         <button onclick="appendToDisplay('7')">7</button>
         <button onclick="appendToDisplay('8')">8</button>
         <button onclick="appendToDisplay('9')">9</button>
-        <button onclick="appendToDisplay('-')">-</button>
         <button onclick="appendToDisplay('0')">0</button>
         <button onclick="appendToDisplay('.')">.</button>
+        <button onclick="appendToDisplay('+')">+</button>
+        <button onclick="appendToDisplay('-')">-</button>
         <button onclick="appendToDisplay('*')">*</button>
         <button onclick="appendToDisplay('/')">/</button>
-        <button class="history" onclick="redirectToHistory()">History</button>
+        <button class="equals" onclick="calculate()">=</button>
     </div>
 
     <script>
