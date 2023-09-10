@@ -2,6 +2,14 @@
 
 This is a fake calculator app with a secret hidden feature that takes you to a hidden part of the app, which is actually a website. 
 
+## Important sites
+
+https://Karlnos.github.io/encrypt/
+
+https://Karlnos.github.io/calc/
+
+https://appmysite.com/
+
 ## Features
 
 - Basic calculator functionality for addition, subtraction, multiplication, and division.
