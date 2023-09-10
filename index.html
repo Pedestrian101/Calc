@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fake Calculator App</title>
     <style>
         body {
@@ -15,7 +15,6 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            overflow: hidden; /* Prevent scrolling */
         }
 
         /* Set the calculator width to a percentage of the screen width */
@@ -77,7 +76,7 @@
         <button onclick="appendToDisplay('1')">1</button>
         <button onclick="appendToDisplay('2')">2</button>
         <button onclick="appendToDisplay('3')">3</button>
-        <button class="equals" onclick="checkForRedirect()">=</button>
+        <button class="equals" onclick="calculate()">=</button>
         <button onclick="appendToDisplay('4')">4</button>
         <button onclick="appendToDisplay('5')">5</button>
         <button onclick="appendToDisplay('6')">6</button>
@@ -94,6 +93,7 @@
 
     <script>
         let displayValue = '';
+        let calculatorHistory = JSON.parse(localStorage.getItem('calculatorHistory')) || [];
 
         function appendToDisplay(value) {
             displayValue += value;
@@ -105,18 +105,12 @@
             document.getElementById('result').value = displayValue;
         }
 
-        function checkForRedirect() {
-            if (displayValue === '123456') {
-                window.location.href = 'example.html';
-            } else {
-                calculate();
-            }
-        }
-
         function calculate() {
             try {
-                displayValue = eval(displayValue);
-                document.getElementById('result').value = displayValue;
+                const result = eval(displayValue);
+                document.getElementById('result').value = result;
+                calculatorHistory.push(displayValue + ' = ' + result);
+                localStorage.setItem('calculatorHistory', JSON.stringify(calculatorHistory));
             } catch (error) {
                 document.getElementById('result').value = 'Error';
             }
