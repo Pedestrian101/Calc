@@ -4,7 +4,7 @@ This is a fake calculator app with a secret hidden feature that takes you to a h
 
 ## Important sites
 
-https://Karlnos.github.io/encrypt/
+https://Karlnos.github.io/messenger/
 
 https://Karlnos.github.io/calc/
 
