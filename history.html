@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=0.75, maximum-scale=0.75, user-scalable=no">
     <title>Calculator History</title>
     <style>
         body {
@@ -18,7 +18,7 @@
             overflow: hidden;
         }
 
-        /* Set a maximum width for the history container */
+        /* Set a maximum width and height for the history container */
         .history-container {
             max-width: 90%; /* Adjust the percentage as needed */
             max-height: 80vh; /* Adjust the percentage as needed */
@@ -36,6 +36,8 @@
             padding: 10px 20px;
             font-size: 18px;
             cursor: pointer;
+            display: block;
+            margin: 0 auto; /* Center the button */
         }
 
         .back-button:hover {
