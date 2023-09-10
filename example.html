@@ -35,6 +35,11 @@
             padding: 5px 10px;
             cursor: pointer;
         }
+
+        .password-purpose {
+            width: 100%;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
@@ -45,9 +50,15 @@
     <script>
         const passwordSections = document.querySelector('.password-sections');
 
-        function createPasswordSection(savedPassword = '') {
+        function createPasswordSection(savedPurpose = '', savedPassword = '') {
             const passwordBox = document.createElement('div');
             passwordBox.className = 'password-box';
+
+            const purposeInput = document.createElement('input');
+            purposeInput.type = 'text';
+            purposeInput.placeholder = 'Purpose (e.g., Gmail)';
+            purposeInput.className = 'password-purpose';
+            purposeInput.value = savedPurpose;
 
             const passwordInput = document.createElement('input');
             passwordInput.type = 'text';
@@ -64,25 +75,31 @@
                 alert('Password copied to clipboard!');
             });
 
-            // Listen for changes in the password input and save it to localStorage
+            // Listen for changes in the input fields and save them to localStorage
+            purposeInput.addEventListener('input', () => {
+                const key = 'purpose' + (Array.from(passwordSections.children).indexOf(passwordBox) + 1);
+                localStorage.setItem(key, purposeInput.value);
+            });
+
             passwordInput.addEventListener('input', () => {
-                // Generate a unique key for each password section based on its position
                 const key = 'password' + (Array.from(passwordSections.children).indexOf(passwordBox) + 1);
                 localStorage.setItem(key, passwordInput.value);
             });
 
+            passwordBox.appendChild(purposeInput);
             passwordBox.appendChild(passwordInput);
             passwordBox.appendChild(copyButton);
 
             passwordSections.appendChild(passwordBox);
         }
 
-        // Load saved passwords from localStorage and create password sections
+        // Load saved data from localStorage and create password sections
         for (let i = 1; i <= 15; i++) {
-            // Generate the corresponding key for each password section
-            const key = 'password' + i;
-            const savedPassword = localStorage.getItem(key) || '';
-            createPasswordSection(savedPassword);
+            const purposeKey = 'purpose' + i;
+            const passwordKey = 'password' + i;
+            const savedPurpose = localStorage.getItem(purposeKey) || '';
+            const savedPassword = localStorage.getItem(passwordKey) || '';
+            createPasswordSection(savedPurpose, savedPassword);
         }
     </script>
 </body>
