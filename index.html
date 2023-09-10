@@ -18,13 +18,21 @@
             overflow: hidden;
         }
 
-        /* Remove the background color for the calculator */
+        /* Set the calculator to fill the entire screen */
         .calculator {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 5px;
             background-color: #111;
-            padding: 10px;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
 
         .display {
+            grid-column: span 4;
             background-color: #444;
             padding: 10px;
             text-align: right;
@@ -32,7 +40,6 @@
             border: none;
             outline: none;
             color: #fff;
-            width: 100%;
         }
 
         button {
@@ -49,11 +56,13 @@
 
         /* Updated layout for clear and history buttons */
         .clear {
+            grid-column: span 2;
             background-color: #007bff; /* Changed color to blue */
             color: #fff;
         }
 
         .history {
+            grid-column: span 2;
             background-color: #ff6f00; /* Changed color to orange */
             color: #fff;
         }
@@ -70,6 +79,7 @@
 
         /* Updated layout as described */
         .equals {
+            grid-row: span 1;
             background-color: #444;
         }
 
