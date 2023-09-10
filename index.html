@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <title>Fake Calculator App</title>
     <style>
         body {
@@ -17,12 +17,12 @@
             min-height: 100vh;
         }
 
-        /* Set the calculator width and height to 100% */
+        /* Set the calculator width to 100% and height to 100vh */
         .calculator {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             width: 100%; /* Fit to display width */
-            height: 100%; /* Fit to display height */
+            height: 100vh; /* Fill the screen height */
             padding: 20px;
             background-color: #333;
             border-radius: 10px;
