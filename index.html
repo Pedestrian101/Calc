@@ -72,6 +72,26 @@
             background-color: #444;
         }
 
+        /* Updated layout as described */
+        .equals {
+            grid-row: span 2;
+            background-color: #ff6f00; /* Changed color */
+            color: #fff;
+        }
+
+        .plus-minus {
+            background-color: #444;
+        }
+
+        .multiply {
+            grid-row: span 2;
+            background-color: #444;
+        }
+
+        .divide {
+            background-color: #444;
+        }
+
         button:hover {
             background-color: #333;
             color: #fff;
@@ -96,8 +116,8 @@
         <button onclick="appendToDisplay('.')">.</button>
         <button onclick="appendToDisplay('+')" class="action">+</button>
         <button onclick="appendToDisplay('-')" class="action">-</button>
-        <button onclick="appendToDisplay('*')" class="action">*</button>
-        <button onclick="appendToDisplay('/')" class="action">/</button>
+        <button onclick="appendToDisplay('*')" class="multiply">×</button> <!-- Changed text to X -->
+        <button onclick="appendToDisplay('/')" class="divide">÷</button> <!-- Changed text to ÷ -->
         <button class="equals" onclick="calculate()">=</button> <!-- Changed color -->
     </div>
 
