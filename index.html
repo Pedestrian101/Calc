@@ -17,12 +17,14 @@
             min-height: 100vh;
         }
 
-        /* Adjust the calculator size to fit a phone screen */
+        /* Adjust the calculator size to fit the screen */
         .calculator {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            width: 100vw; /* 100% of viewport width */
+            width: 100%; /* 100% of viewport width */
             max-width: 400px; /* Limit the maximum width */
+            height: 100%; /* 100% of viewport height */
+            max-height: 600px; /* Limit the maximum height */
             padding: 20px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
             background-color: #333;
