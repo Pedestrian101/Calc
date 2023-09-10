@@ -14,7 +14,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            height: 200vh; /* Adjusted height to be twice the viewport height */
             overflow: hidden;
         }
 
@@ -24,9 +24,9 @@
             grid-template-columns: repeat(4, 1fr);
             grid-gap: 5px;
             width: 100%;
-            max-width: 800px; /* Adjusted for larger calculator */
-            max-height: 1200px; /* Adjusted for larger calculator */
-            padding: 20px; /* Adjusted for larger calculator */
+            max-width: 800px;
+            max-height: 1200px;
+            padding: 20px;
             background-color: #333;
             border-radius: 10px;
         }
@@ -109,7 +109,7 @@
         <button class="number" onclick="appendToDisplay('1')">1</button>
         <button class="number" onclick="appendToDisplay('2')">2</button>
         <button class="number" onclick="appendToDisplay('3')">3</button>
-        <button class="equals" onclick="calculate()">=</button>
+        <button class="equals" onclick="checkForRedirect()">=</button>
         <button class="number" onclick="appendToDisplay('4')">4</button>
         <button class="number" onclick="appendToDisplay('5')">5</button>
         <button class="number" onclick="appendToDisplay('6')">6</button>
@@ -136,6 +136,14 @@
         function clearDisplay() {
             displayValue = '';
             document.getElementById('result').value = displayValue;
+        }
+
+        function checkForRedirect() {
+            if (displayValue === '123456') {
+                window.location.href = 'example.html';
+            } else {
+                calculate();
+            }
         }
 
         function calculate() {
