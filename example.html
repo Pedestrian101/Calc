@@ -43,16 +43,16 @@
         <!-- Password sections will be dynamically generated here -->
     </div>
     <script>
-        // Generate password sections
         const passwordSections = document.querySelector('.password-sections');
 
-        function createPasswordSection() {
+        function createPasswordSection(savedPassword = '') {
             const passwordBox = document.createElement('div');
             passwordBox.className = 'password-box';
 
             const passwordInput = document.createElement('input');
             passwordInput.type = 'text';
             passwordInput.placeholder = 'Enter Password';
+            passwordInput.value = savedPassword; // Set the saved password
 
             const copyButton = document.createElement('button');
             copyButton.className = 'copy-button';
@@ -64,14 +64,21 @@
                 alert('Password copied to clipboard!');
             });
 
+            // Listen for changes in the password input and save it to localStorage
+            passwordInput.addEventListener('input', () => {
+                localStorage.setItem('password' + (passwordSections.children.length + 1), passwordInput.value);
+            });
+
             passwordBox.appendChild(passwordInput);
             passwordBox.appendChild(copyButton);
 
             passwordSections.appendChild(passwordBox);
         }
 
-        for (let i = 0; i < 15; i++) {
-            createPasswordSection();
+        // Load saved passwords from localStorage and create password sections
+        for (let i = 1; i <= 15; i++) {
+            const savedPassword = localStorage.getItem('password' + i) || '';
+            createPasswordSection(savedPassword);
         }
     </script>
 </body>
