@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.75, maximum-scale=0.75, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=0.02, maximum-scale=0.02, user-scalable=no">
     <title>Fake Calculator App</title>
     <style>
         body {
@@ -22,9 +22,10 @@
         .calculator {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            grid-gap: 10px;
-            width: 120%; /* Enlarge by 75% (adjust the percentage as needed) */
+            grid-template-rows: repeat(6, 1fr);
+            width: 15000%; /* Enlarged by 150 times (adjust as needed) */
             max-width: 400px;
+            max-height: 600px;
             padding: 10px;
             background-color: #333;
             border-radius: 10px;
@@ -32,6 +33,7 @@
 
         .display {
             grid-column: span 3;
+            grid-row: span 2;
             background-color: #444;
             padding: 10px;
             text-align: right;
@@ -54,13 +56,12 @@
         }
 
         .clear {
-            grid-column: span 2;
+            grid-row: span 2;
             background-color: #ff6f00;
             color: #fff;
         }
 
         .history {
-            grid-row: span 2;
             background-color: #007bff;
             color: #fff;
         }
@@ -68,6 +69,11 @@
         .equals {
             background-color: #ff6f00;
             color: #fff;
+        }
+
+        /* Updated layout for action buttons */
+        .action {
+            background-color: #444;
         }
 
         button:hover {
@@ -92,10 +98,10 @@
         <button onclick="appendToDisplay('9')">9</button>
         <button onclick="appendToDisplay('0')">0</button>
         <button onclick="appendToDisplay('.')">.</button>
-        <button onclick="appendToDisplay('+')">+</button>
-        <button onclick="appendToDisplay('-')">-</button>
-        <button onclick="appendToDisplay('*')">*</button>
-        <button onclick="appendToDisplay('/')">/</button>
+        <button onclick="appendToDisplay('+')" class="action">+</button>
+        <button onclick="appendToDisplay('-')" class="action">-</button>
+        <button onclick="appendToDisplay('*')" class="action">*</button>
+        <button onclick="appendToDisplay('/')" class="action">/</button>
         <button class="equals" onclick="calculate()">=</button>
     </div>
 
