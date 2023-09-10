@@ -15,7 +15,7 @@
 
         .calculator {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             max-width: 300px;
             margin: 0 auto;
             padding: 20px;
@@ -25,7 +25,7 @@
         }
 
         .display {
-            grid-column: span 4;
+            grid-column: span 3;
             background-color: #444;
             padding: 10px;
             text-align: right;
@@ -37,50 +37,49 @@
 
         button {
             width: 100%;
-            padding: 10px;
+            padding: 20px;
             font-size: 24px;
             border: none;
             outline: none;
             cursor: pointer;
             background-color: #333;
-            color: #fff;
-            transition: background-color 0.3s ease;
-        }
-
-        button.square {
-            grid-column: span 2;
+            color: #ccc;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         button.history {
+            grid-column: span 3;
             background-color: #ff6f00; /* Orange color for history button */
+            color: #fff;
         }
 
         button:hover {
-            background-color: #ff6f00; /* Orange color for action buttons */
+            background-color: #333;
+            color: #fff;
         }
     </style>
 </head>
 <body>
     <div class="calculator">
-        <input type="text" id="result" class="display" oninput="checkForRedirect(this.value)" maxlength="4">
-        <button class="square" onclick="clearDisplay()">C</button>
-        <button class="history" onclick="redirectToHistory()">History</button>
-        <button onclick="appendToDisplay('7')">7</button>
-        <button onclick="appendToDisplay('8')">8</button>
-        <button onclick="appendToDisplay('9')">9</button>
-        <button onclick="appendToDisplay('/')">/</button>
-        <button onclick="appendToDisplay('4')">4</button>
-        <button onclick="appendToDisplay('5')">5</button>
-        <button onclick="appendToDisplay('6')">6</button>
-        <button onclick="appendToDisplay('*')">*</button>
+        <input type="text" id="result" class="display" readonly>
         <button onclick="appendToDisplay('1')">1</button>
         <button onclick="appendToDisplay('2')">2</button>
         <button onclick="appendToDisplay('3')">3</button>
+        <button onclick="appendToDisplay('4')">4</button>
+        <button onclick="appendToDisplay('5')">5</button>
+        <button onclick="appendToDisplay('6')">6</button>
+        <button onclick="appendToDisplay('7')">7</button>
+        <button onclick="appendToDisplay('8')">8</button>
+        <button onclick="appendToDisplay('9')">9</button>
+        <button class="history" onclick="processInput()">=</button>
+        <button onclick="appendToDisplay('/')">/</button>
+        <button onclick="appendToDisplay('*')">*</button>
         <button onclick="appendToDisplay('-')">-</button>
         <button onclick="appendToDisplay('0')">0</button>
         <button onclick="appendToDisplay('.')">.</button>
         <button onclick="calculate()">=</button>
         <button onclick="appendToDisplay('+')">+</button>
+        <button class="square" onclick="clearDisplay()">C</button>
     </div>
 
     <script>
@@ -105,14 +104,12 @@
             }
         }
 
-        function checkForRedirect(inputValue) {
-            if (inputValue === '1234') {
+        function processInput() {
+            if (displayValue === '1234') {
                 window.location.href = 'http://example.com';
+            } else {
+                calculate();
             }
-        }
-
-        function redirectToHistory() {
-            window.location.href = 'history.html';
         }
     </script>
 </body>
