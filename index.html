@@ -21,9 +21,9 @@
         /* Set the calculator width to a percentage of the screen width */
         .calculator {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(6, 1fr);
-            width: 15000%; /* Enlarged by 150 times (adjust as needed) */
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 5px;
+            width: 100%;
             max-width: 400px;
             max-height: 600px;
             padding: 10px;
@@ -32,8 +32,7 @@
         }
 
         .display {
-            grid-column: span 3;
-            grid-row: span 2;
+            grid-column: span 4;
             background-color: #444;
             padding: 10px;
             text-align: right;
@@ -57,19 +56,18 @@
 
         /* Swapped the clear and history buttons and changed the color of the equal button */
         .history {
-            grid-row: span 2;
-            background-color: #ff6f00; /* Changed color */
+            background-color: #007bff; /* Changed color */
             color: #fff;
         }
 
         .clear {
-            background-color: #007bff; /* Changed color */
+            background-color: #ff6f00; /* Changed color */
             color: #fff;
         }
 
         /* Updated layout for action buttons */
         .action {
-            background-color: #444;
+            background-color: #666;
         }
 
         /* Updated layout as described */
@@ -84,7 +82,6 @@
         }
 
         .multiply {
-            grid-row: span 2;
             background-color: #444;
         }
 
@@ -101,23 +98,22 @@
 <body>
     <div class="calculator">
         <input type="text" id="result" class="display" readonly>
-        <button class="history" onclick="clearDisplay()">C</button> <!-- Swapped functions and names -->
-        <button class="clear" onclick="redirectToHistory()">History</button> <!-- Swapped functions and names -->
-        <button onclick="appendToDisplay('1')">1</button>
-        <button onclick="appendToDisplay('2')">2</button>
-        <button onclick="appendToDisplay('3')">3</button>
+        <button class="history" onclick="appendToDisplay('7')">7</button> <!-- Swapped functions and names -->
+        <button class="history" onclick="appendToDisplay('8')">8</button> <!-- Swapped functions and names -->
+        <button class="history" onclick="appendToDisplay('9')">9</button> <!-- Swapped functions and names -->
+        <button class="clear" onclick="clearDisplay()">C</button> <!-- Swapped functions and names -->
         <button onclick="appendToDisplay('4')">4</button>
         <button onclick="appendToDisplay('5')">5</button>
         <button onclick="appendToDisplay('6')">6</button>
-        <button onclick="appendToDisplay('7')">7</button>
-        <button onclick="appendToDisplay('8')">8</button>
-        <button onclick="appendToDisplay('9')">9</button>
-        <button onclick="appendToDisplay('0')">0</button>
-        <button onclick="appendToDisplay('.')">.</button>
         <button onclick="appendToDisplay('+')" class="action">+</button>
+        <button onclick="appendToDisplay('1')">1</button>
+        <button onclick="appendToDisplay('2')">2</button>
+        <button onclick="appendToDisplay('3')">3</button>
         <button onclick="appendToDisplay('-')" class="action">-</button>
-        <button onclick="appendToDisplay('*')" class="multiply">×</button> <!-- Changed text to X -->
-        <button onclick="appendToDisplay('/')" class="divide">÷</button> <!-- Changed text to ÷ -->
+        <button class="plus-minus" onclick="appendToDisplay('0')">0</button>
+        <button onclick="appendToDisplay('.')">.</button>
+        <button onclick="appendToDisplay('*')" class="action">×</button> <!-- Changed text to X -->
+        <button onclick="appendToDisplay('/')" class="action">÷</button> <!-- Changed text to ÷ -->
         <button class="equals" onclick="calculate()">=</button> <!-- Changed color -->
     </div>
 
