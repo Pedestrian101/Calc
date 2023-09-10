@@ -55,19 +55,15 @@
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        .clear {
-            grid-row: span 2;
-            background-color: #ff6f00;
-            color: #fff;
-        }
-
+        /* Swapped the clear and history buttons and changed the color of the equal button */
         .history {
-            background-color: #007bff;
+            grid-row: span 2;
+            background-color: #ff6f00; /* Changed color */
             color: #fff;
         }
 
-        .equals {
-            background-color: #ff6f00;
+        .clear {
+            background-color: #007bff; /* Changed color */
             color: #fff;
         }
 
@@ -85,8 +81,8 @@
 <body>
     <div class="calculator">
         <input type="text" id="result" class="display" readonly>
-        <button class="clear" onclick="clearDisplay()">C</button>
-        <button class="history" onclick="redirectToHistory()">History</button>
+        <button class="history" onclick="clearDisplay()">C</button> <!-- Swapped functions and names -->
+        <button class="clear" onclick="redirectToHistory()">History</button> <!-- Swapped functions and names -->
         <button onclick="appendToDisplay('1')">1</button>
         <button onclick="appendToDisplay('2')">2</button>
         <button onclick="appendToDisplay('3')">3</button>
@@ -102,7 +98,7 @@
         <button onclick="appendToDisplay('-')" class="action">-</button>
         <button onclick="appendToDisplay('*')" class="action">*</button>
         <button onclick="appendToDisplay('/')" class="action">/</button>
-        <button class="equals" onclick="calculate()">=</button>
+        <button class="equals" onclick="calculate()">=</button> <!-- Changed color -->
     </div>
 
     <script>
