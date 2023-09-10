@@ -80,6 +80,11 @@
                 historyList.appendChild(historyItem);
             });
         }
+
+        // Clear calculatorHistory when leaving the page
+        window.addEventListener('beforeunload', () => {
+            localStorage.removeItem('calculatorHistory');
+        });
     </script>
 </body>
 </html>
