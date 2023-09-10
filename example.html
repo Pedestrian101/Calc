@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Manager</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .password-sections {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .password-box {
+            border: 1px solid #333;
+            padding: 10px;
+            text-align: center;
+            width: 200px;
+        }
+
+        .copy-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Password Manager</h1>
+    <div class="password-sections">
+        <!-- Password sections will be dynamically generated here -->
+    </div>
+    <script>
+        // Generate password sections
+        const passwordSections = document.querySelector('.password-sections');
+
+        function createPasswordSection() {
+            const passwordBox = document.createElement('div');
+            passwordBox.className = 'password-box';
+
+            const passwordInput = document.createElement('input');
+            passwordInput.type = 'text';
+            passwordInput.placeholder = 'Enter Password';
+
+            const copyButton = document.createElement('button');
+            copyButton.className = 'copy-button';
+            copyButton.innerText = 'Copy';
+
+            copyButton.addEventListener('click', () => {
+                passwordInput.select();
+                document.execCommand('copy');
+                alert('Password copied to clipboard!');
+            });
+
+            passwordBox.appendChild(passwordInput);
+            passwordBox.appendChild(copyButton);
+
+            passwordSections.appendChild(passwordBox);
+        }
+
+        for (let i = 0; i < 15; i++) {
+            createPasswordSection();
+        }
+    </script>
+</body>
+</html>
